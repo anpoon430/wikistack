@@ -3,6 +3,9 @@ const app = express();
 const morgan = require('morgan');
 const layout = require('./views/layout');
 const {db, Page, User} = require('./models/index');
+const wiki = require('./routes/wiki');
+const user = require('./routes/user');
+
 app.use(morgan('dev'));
 //parses url-encoded bodies
 app.use(express.urlencoded({ extended: false }));
@@ -16,12 +19,15 @@ db.authenticate().
   });
 
 
+app.use('/users', user);
+app.use('/wiki', wiki);
+app.use('/', (req, res, next) => {
+  res.redirect('/wiki');
+});
 
 
 
-app.get('/', (req, res, next) => {
-  res.send(layout(''));
-})
+
 
 
 

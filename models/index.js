@@ -4,14 +4,14 @@ const db = new Sequelize('postgres://localhost:5432/wikistack', {
 });
 
 const Page = db.define( 'page', {
-  title: Sequelize.STRING,
-  slug: {type: Sequelize.STRING, validate: {isUrl: true}},
-  content: Sequelize.TEXT,
+  title: {type: Sequelize.STRING , allowNull: false},
+  slug: {type: Sequelize.STRING, allowNull: false},
+  content: {type:Sequelize.TEXT, allowNull: false,},
   status: Sequelize.ENUM('open', 'closed')
 });
 const User = db.define( 'user', {
-  name: Sequelize.STRING,
-  email: {type: Sequelize.STRING, validate: {isEmail: true}}
+  name: {type:Sequelize.STRING, allowNull: false},
+  email: {type: Sequelize.STRING, validate: {isEmail: true} , allowNull: false}
 });
 
 
