@@ -6,13 +6,14 @@ module.exports = () => layout(html`
   <hr>
   <form method="POST" action="/wiki/">
 
-    <div><input id="authorName" name="name" type="text" class="form-control"/>
-    <label for="authorName">Name</label>
+  <div>
+  <label for="authorName">Name</label>
+  <input id="authorName" name="name" type="text" class="form-control"/>
     </div>
 
     <div>
-    <input id="email" name="email" type="email" class="form-control"/>
     <label for="email">Email</label>
+    <input id="email" name="email" type="email" class="form-control"/>
     </div>
 
     <div class="form-group">
@@ -22,18 +23,19 @@ module.exports = () => layout(html`
       </div>
     </div>
 
-    <div><label for="content">Content</label>
-    <textarea id="content" name="content" class="form-control"/></textarea>
+    <div>
+    <label for="content">Content</label>
+    <textarea id="content" name="content" class="form-control"/>
+    </textarea>
     </div>
 
 
       <div>
-        <input id="status_open" name="status" value = 'open' type="radio" class="form-control"/>
-        <label for="status_open">Open</label>
+      <label for="status_open">Open</label>
+        <input id="status_open" name="status" value = 'open' type="radio"/>
 
-
-        <input id="status_closed" name="status" value = 'closed' type="radio" class="form-control"/>
         <label for="status_closed">Closed</label>
+        <input id="status_closed" name="status" value = 'closed' type="radio" />
       </div
 
 

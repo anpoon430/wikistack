@@ -6,9 +6,11 @@ module.exports = (page, author) => layout(html`
   <hr>
   <form method="POST" action="/wiki/${page.slug}">
 
-    <div>PLACEHOLDER FOR AUTHOR NAME FIELD</div>
-    
-    <div>PLACEHOLDER FOR AUTHOR EMAIL FIELD</div>
+    <div><label for="authorName">Name</label>
+    <input id="authorName" name="name" type="text" class="form-control"/ value = "${author.name}"></div>
+
+    <div><label for="email">Email</label>
+    <input id="email" name="email" type="email" class="form-control" value = "${author.email}"/></div>
 
     <div class="form-group">
       <label for="title" class="col-sm-2 control-label">Page Title</label>
@@ -17,15 +19,20 @@ module.exports = (page, author) => layout(html`
       </div>
     </div>
 
-    <div>PLACEHOLDER FOR PAGE CONTENT TEXTAREA FIELD</div>
+    <div><label for="content">Content</label>
+    <textarea id="content" name="content" class="form-control"/>
+    </textarea>
+    </div>
 
     <div class="form-group">
       <label for="content" class="col-sm-2 control-label">Status</label>
       <div class="col-sm-10">
-        <select name="status">
-          <option ${page.status == "open" ? "selected" : ""}>open</option>
-          <option ${page.status == "closed" ? "selected" : ""}>closed</option>
-        </select>
+
+      <label for="status_open">Open</label>
+      <input id="status_open" name="status" value = 'open' type="radio"/>
+
+      <label for="status_closed">Closed</label>
+      <input id="status_closed" name="status" value = 'closed' type="radio" />
       </div>
     </div>
 
